@@ -1,95 +1,77 @@
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Grid,Container,Box } from '@mui/material';
+import Link from "next/link";
+// export async function getData() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`);
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch data');
+//   }
+//   return res.json();
+// }
 
-export default function Home() {
+export default async function Home() {
+  if (!process.env.NEXT_PUBLIC_API_URL) {
+    return null;
+  }
+  // const data = await getData();
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div style={{ padding: '0px' }}>
+        <Box className = "SectionOne" >
+        
+          <Typography variant="h2" fontWeight="bold">
+            Website Project Final Deadline
+          </Typography>
+          <Typography variant="subtitle1" mt={2} fontSize={18}>
+             Website นี้ถูกสร้างขึ้นมาเพื่อใช้ส่งโปรเจ็คดังนั้นหากมีข้อผิดพลาดหรืออ้างอิงได้ที่เกิดความเสียหายโปรดเข้าใจว่าเป็นการทำแค่ส่งงานไม่ได้มีเจตนาอันใด
+          </Typography>
+         
+       
+      </Box>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+
+      <Box className = "SectionTwo">
+        <Container sx={{border:3, 
+          width: 400, 
+          display: "block",
+          marginLeft:8,
+           backgroundColor: "#fef6e4"
+        }}>
+        <Typography variant="h4" gutterBottom textAlign={"center"} marginTop={2} >
+             เกี่ยวกับเว็บไซต์นี้
+          </Typography>
+          <Grid container spacing={4} marginBottom={2} border={2} borderColor={"green"}>
+            <Grid item xs={12}  >
+              <Card sx={{ p: 3,  backgroundColor: "#dbeafe" }} >
+                <Typography variant="h6">ทันสมัย</Typography>
+                <Typography>
+                 เป็นเว็บรีวิวเกี่ยวกับมังฮวาสำหรับลูกผู้ชาย มีการกล่าวถึงเกี่ยวกับเนื้อหามากมาย ถ้าเกิดยังอายุไม่ถึง 18 กรณีปิดไป
+                </Typography>
+              </Card>
+            </Grid>
+            </Grid>
+          </Container>
+
+          <Container sx={{
+            marginTop: 10
+          }}>
+            <Link href={"/attractions" }>
+          <Button variant="outlined" color="primary">
+          รายละเอียดเพิ่มเติม
+        </Button>
+        </Link>
+          </Container>
+
+      </Box>
+
+        
+
     </div>
+    
+    
+
   );
 }

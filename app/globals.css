@@ -12,8 +12,11 @@
 
 html,
 body {
-  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
   overflow-x: hidden;
+  
 }
 
 body {
@@ -22,6 +25,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.SectionOne{
+  background-color: #e3f2fd;
+  width: 100vw;
+  padding: 220px 0;
+  text-align: center;
+  margin: 0;
+  
+}
+
+.SectionTwo{
+  display: flex;
+  background-color: #ac3c58c0;
+
+ 
 }
 
 * {
