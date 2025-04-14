@@ -12,16 +12,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`} style={{background:'white'}} >
+      <body
+        className={`${geistSans.variable} ${geistMono.variable}`}
+        style={{
+          background: "white",
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center",
+          justifyContent: "center",
+        }}
+      >
         <AppBarWeb />
-        {children}
-        
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+            paddingLeft: "auto",
+            paddingRight: "auto",
+          }}
+        >
+          {children}
+        </div>
       </body>
     </html>
   );

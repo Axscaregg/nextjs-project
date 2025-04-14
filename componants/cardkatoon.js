@@ -10,13 +10,12 @@ import {
 export default function Cardkatoon({ attraction, index }) {
   return (
     <Grid
-      index={index}
       item
-      key={attraction.id}
+      key={attraction?.id}
       xs={12}
       md={4}
       sx={{
-        width: 350,
+        width: 300,
       }}
     >
       <Card>
