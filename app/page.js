@@ -45,7 +45,7 @@ export default async function Home() {
           </Typography>
           <Grid container spacing={4} marginBottom={2} border={2} borderColor={"green"}>
             <Grid item xs={12}  >
-              <Card sx={{ p: 3,  backgroundColor: "#dbeafe" }} >
+              <Card sx={{ p: 3,  backgroundColor: "#dbeafe" }}  >
                 <Typography variant="h6">ทันสมัย</Typography>
                 <Typography>
                  เป็นเว็บรีวิวเกี่ยวกับมังฮวาสำหรับลูกผู้ชาย มีการกล่าวถึงเกี่ยวกับเนื้อหามากมาย ถ้าเกิดยังอายุไม่ถึง 18 กรณีปิดไป

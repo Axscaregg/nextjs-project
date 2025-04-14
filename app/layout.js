@@ -1,9 +1,7 @@
 "use client";
+import AppBarWeb from "@/componants/appBarWeb";
 import { Geist, Geist_Mono } from "next/font/google";
-import React from 'react';
 import "./globals.css";
-import MenuIcon from '@mui/icons-material/Menu';
-import { Menu , MenuItem , Button, Typography, Grid,AppBar,Toolbar,IconButton  } from '@mui/material';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,8 +18,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`} >
-      
+      <body className={`${geistSans.variable} ${geistMono.variable}`} style={{background:'white'}} >
+        <AppBarWeb />
         {children}
         
       </body>
