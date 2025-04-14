@@ -1,30 +1,28 @@
-import React from "react";
 import {
+  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  Button,
-  Typography,
   Grid,
-  AppBar,
-  Toolbar,
+  Typography,
 } from "@mui/material";
-export default function Cardkatoon({ attraction }) {
+export default function Cardkatoon({ attraction, index }) {
   return (
     <Grid
+      index={index}
       item
       key={attraction.id}
       xs={12}
       md={4}
       sx={{
-        width: '100%',
+        width: 350,
       }}
     >
       <Card>
         <CardMedia
           component="img"
-          sx={{ width: '100%', height: 300, objectFit: "cover" }}
+          sx={{ width: "100%", height: 300, objectFit: "cover" }}
           image={attraction.cover_image}
           alt={attraction.title}
         />

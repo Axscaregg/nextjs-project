@@ -1,7 +1,7 @@
 // app/attractions/page.js
 
 import Cardkatoon from '@/componants/cardkatoon';
-import { Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 export async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`);
   if (!res.ok) {
@@ -17,13 +17,13 @@ export default async function Page() {
   const data = await getData();
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px', maxWidth:1440}}>
       <Typography variant='h4' fontFamily={"Arial"} textAlign={"center"}>มังฮวาแนะนำสำหรับลูกผู้ชาย</Typography>
-      <Grid container spacing={4}>
-        {data.map(attraction => (
-         <Cardkatoon attraction ={attraction}/>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'start', gap: '20px', marginTop: '20px', width: 'fit-content' }}>
+        {data.map((attraction, index) => (
+         <Cardkatoon attraction ={attraction} index={index} key={index}/>
         ))}
-      </Grid>
+      </div>
     </div>  
   );
 }
