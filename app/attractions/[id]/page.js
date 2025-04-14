@@ -14,9 +14,9 @@ export default async function Page({params}) {
       return null;
     }
    
-    const id = params.id; 
+    const id =  params?.id; 
     const data = await getData(id);
-    console.log(data.length)
+
   return (
     <Container maxWidth="md" sx={{ mt: 2 }}>
       { data.length > 0 &&
