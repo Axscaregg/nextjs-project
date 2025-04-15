@@ -46,6 +46,18 @@ const AppBarWeb = () => {
             Manhwa
           </Button>
         </Link>
+            <Link href={"/createR"}>
+            <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#a1ec91",
+              color: "red",
+              marginLeft: 10,
+            }}
+          >
+            Create
+          </Button>
+            </Link>
       </Toolbar>
     </AppBar>
   );
