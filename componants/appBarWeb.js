@@ -2,11 +2,13 @@ import { AppBar, Button, IconButton, Menu, MenuItem, Toolbar } from "@mui/materi
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const AppBarWeb = () => {
   const pages = ["Products", "Pricing", "Blog"];
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const router = useRouter();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -33,6 +35,8 @@ const AppBarWeb = () => {
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
           <MenuItem onClick={handleClose}>โปรไฟล์</MenuItem>
           <MenuItem onClick={handleClose}>ออกจากระบบ</MenuItem>
+          <MenuItem onClick={()=>{router.push("createR")}}>เพิ่มการ์ตูน</MenuItem>
+
         </Menu>
         <Link href={"/attractions"}>
           <Button
