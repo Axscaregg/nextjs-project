@@ -1,7 +1,12 @@
 // app/attractions/page.js
 
-import Cardkatoon from "@/componants/cardkatoon";
 import { Box, Grid, Typography } from "@mui/material";
+import dynamic from "next/dynamic";
+
+const Cardkatoon = dynamic(() => import("@/componants/cardkatoon"), {
+    loading: () => <p>Loading...</p>, // Optional: fallback component while loading
+  });
+
 export async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`);
   if (!res.ok) {
@@ -15,6 +20,9 @@ export default async function Page() {
     return null;
   }
   const data = await getData();
+
+  console.log("data",data)
+
 
   return (
     <div style={{ padding: "20px", maxWidth: 1440, display: "flex", flexDirection: "column", alignItems: "center" }}>

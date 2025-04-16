@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { mysqlPool } from "@/utils/db";
+import { v4 as uuidv4 } from "uuid";
+
 const promisePool = mysqlPool.promise();
 
 export async function GET(request) {
@@ -8,14 +10,16 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
+  const { title, author, artist, detail, review, genre, cover_image } = await request.json();
+
   try {
-    const { title, author, artist, detail, review, genre, cover_image } = await request.json();
+
 
     const promisePool = mysqlPool.promise();
     const [result] = await promisePool.query(
-      `INSERT INTO manga (title, author, artist, detail, review, genre, cover_image)
+      `INSERT INTO manga ( title, author, artist, detail, review, genre, cover_image)
        VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      [title, author, artist, detail, review, genre, cover_image]
+      [ title, author, artist, detail, review, genre, cover_image]
     );
 
     return NextResponse.json(
