@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const id = uuidv4();
 
-export default function Page() {
+const Page = ()  => {
   const [form, setForm] = useState({
     title: "",
     author: "",
@@ -166,3 +166,5 @@ export default function Page() {
     </Container>
   );
 }
+
+export default Page;

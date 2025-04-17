@@ -34,6 +34,7 @@ const deleteCartoon = async () => {
       throw new Error("Failed to delete data");
     }
     alert("Delete success");
+    window.location.reload()
   }catch (error) {
     console.log("error :", error);
   }
@@ -65,7 +66,7 @@ const deleteCartoon = async () => {
             <a
               href={
                 isEdit
-                  ? `/editCartoon/${attraction.id}`
+                  ? `/editCartoon/${attraction.title}`
                   : `/attractions/${attraction.id}`
               }
               style={{ textDecoration: "none" }}
@@ -91,7 +92,7 @@ const deleteCartoon = async () => {
             <a
               href={
                 isEdit
-                  ? `/editCartoon/${attraction.id}`
+                  ? `/editCartoon/${attraction.title}`
                   : `/attractions/${attraction.id}`
               }
             >

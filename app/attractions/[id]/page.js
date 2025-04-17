@@ -1,6 +1,6 @@
-import React from 'react'
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, Grid,AppBar,Container } from '@mui/material';
-import Link from 'next/link';
+import { Card, CardContent, CardMedia, Container, Typography } from '@mui/material';
+
+
 export async function getData(id) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/attractions/${id}/`);
   if (!res.ok) {

@@ -15,6 +15,7 @@ export async function getData() {
   }
 
 const page = async () => {
+    
     if (!process.env.NEXT_PUBLIC_API_URL) {
         return null;
       }
