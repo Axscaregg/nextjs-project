@@ -17,7 +17,7 @@ export async function POST(request) {
 
     const promisePool = mysqlPool.promise();
     const [result] = await promisePool.query(
-      `INSERT INTO manga ( title, author, artist, detail, review, genre, cover_image)
+      `INSERT INTO manga_new ( title, author, artist, detail, review, genre, cover_image)
        VALUES (?, ?, ?, ?, ?, ?, ?)`,
       [ title, author, artist, detail, review, genre, cover_image]
     );
