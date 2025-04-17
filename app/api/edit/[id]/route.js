@@ -21,7 +21,7 @@ export async function GET(request) {
 export async function DELETE(request) {
   try {
     const { id, title } = await request.json();
-    const [result] = await promisePool.query("DELETE FROM manga WHERE title=?", [
+    const [result] = await promisePool.query("DELETE FROM manga_new WHERE title=?", [
       title,
     ]);
     if (result.affectedRows == 0) {
