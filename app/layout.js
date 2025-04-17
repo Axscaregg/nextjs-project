@@ -2,6 +2,7 @@
 import AppBarWeb from "@/componants/appBarWeb";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { usePathname } from "next/navigation";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,6 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  const shouldShowAppBar = pathname === "/";
   return (
     <html lang="en">
       <body
@@ -25,7 +28,7 @@ export default function RootLayout({ children }) {
           justifyContent: "center",
         }}
       >
-        <AppBarWeb />
+         {!shouldShowAppBar && <AppBarWeb />}
         <div
           style={{
             display: "flex",
