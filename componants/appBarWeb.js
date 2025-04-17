@@ -1,3 +1,4 @@
+"use client";
 import { AppBar, Button, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
@@ -36,7 +37,7 @@ const AppBarWeb = () => {
           <MenuItem onClick={handleClose}>โปรไฟล์</MenuItem>
           <MenuItem onClick={handleClose}>ออกจากระบบ</MenuItem>
           <MenuItem onClick={()=>{router.push("createR")}}>เพิ่มการ์ตูน</MenuItem>
-          <MenuItem onClick={()=>{router.push("editCartoon")}}>แก้ไขการ์ตูน</MenuItem>
+          <MenuItem onClick={()=>{window.location.href = "/editCartoon";}}>แก้ไขการ์ตูน</MenuItem>
         </Menu>
         <Link href={"/attractions"}>
           <Button

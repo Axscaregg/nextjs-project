@@ -8,12 +8,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
+import { use, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const id = uuidv4();
-
-const Page = ()  => {
+const Page = () => {
   const [form, setForm] = useState({
     title: "",
     author: "",
@@ -23,6 +23,39 @@ const Page = ()  => {
     genre: "",
     cover_image: "",
   });
+  const params = useParams();
+  // console.log("params :", params?.id);
+
+  const getData = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/edit/${params?.id}`,
+        {
+          method: "GET",
+        }
+      );
+
+      const data = await res.json(); // 👈 Get the actual response body
+
+      // console.log("data:", data[0]);
+      setForm({
+        title: data?.[0]?.title,
+        author: data?.[0]?.author,
+        artist: data?.[0]?.artist,
+        detail: data?.[0]?.detail,
+        review: data?.[0]?.review,
+        genre: data?.[0]?.genre,
+        cover_image: data?.[0]?.cover_image,
+      });
+      // setData(data); // Or whatever you're doing with the result
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const handleChange = (e) => {
     setForm((prev) => ({
@@ -34,14 +67,14 @@ const Page = ()  => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api", {
-        method: "POST",
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/edit/${params?.id}`, {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
       if (res.ok) {
-        alert("เพิ่มข้อมูลเรียบร้อยแล้ว ✅");
+        alert("แก้ไขข้อมูลเรียบร้อยแล้ว ✅");
         setForm({
           title: "",
           author: "",
@@ -51,10 +84,13 @@ const Page = ()  => {
           genre: "",
           cover_image: "",
         });
+
       } else {
         const err = await res.json();
         alert("เกิดข้อผิดพลาด: " + err.error);
       }
+      // router.push("/attractions");
+      window.location.href = "/attractions";
     } catch (error) {
       alert("เกิดข้อผิดพลาด: " + error.message);
     }
@@ -165,6 +201,6 @@ const Page = ()  => {
       </Box>
     </Container>
   );
-}
+};
 
 export default Page;
