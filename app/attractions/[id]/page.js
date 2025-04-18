@@ -35,6 +35,7 @@ export default async function Page({params}) {
           />
           <CardContent>
           <Typography variant="h6">Author: {data[0].author}  Artist: {data[0].artist}</Typography>
+          <Typography variant="h6">genre: {data[0].genre}</Typography>
           <Typography variant="h6">Synopsis</Typography>
             <Typography variant="body2" color="text.secondary">
               {data[0].detail}

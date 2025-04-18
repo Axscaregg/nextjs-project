@@ -34,8 +34,6 @@ const AppBarWeb = () => {
           <MenuIcon />
         </IconButton>
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-          <MenuItem onClick={handleClose}>โปรไฟล์</MenuItem>
-          <MenuItem onClick={handleClose}>ออกจากระบบ</MenuItem>
           <MenuItem onClick={()=>{router.push("createR")}}>เพิ่มการ์ตูน</MenuItem>
           <MenuItem onClick={()=>{window.location.href = "/editCartoon";}}>แก้ไขการ์ตูน</MenuItem>
         </Menu>

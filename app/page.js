@@ -62,7 +62,7 @@ export default async function Home() {
           }}
         >
           <Link href={"/attractions"}>
-            <Button variant="outlined" color="primary">
+            <Button variant="contained" color="primary">
               รายละเอียดเพิ่มเติม
             </Button>
           </Link>

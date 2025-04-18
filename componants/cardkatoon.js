@@ -96,8 +96,8 @@ const deleteCartoon = async () => {
                   : `/attractions/${attraction.id}`
               }
             >
-              <Button size="small">Learn More</Button>
             </a>
+            <Typography variant="h7">{attraction.genre}</Typography>
           </CardActions>
         </Card>
       </Grid>
