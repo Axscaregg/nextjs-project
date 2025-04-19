@@ -6,7 +6,7 @@ export async function GET(request, { params }) {
 
   const promisePool = mysqlPool.promise();
   const [rows] = await promisePool.query(
-    'SELECT * FROM manga WHERE id = ?',
+    'SELECT * FROM manga_new WHERE id = ?',
     [id]
   );
 
